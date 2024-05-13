@@ -18,4 +18,7 @@ router.post("/view/:id", product_controller.view_detail_post);
 router.get("/update/:id", product_controller.update_get);
 router.post("/update/:id", product_controller.update_post);
 
+router.get("/search", product_controller.search_get);
+
+
 module.exports = router;

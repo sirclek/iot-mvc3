@@ -5,6 +5,12 @@ const asyncHandler = require("express-async-handler");
 const Cart = require("../models/cart");
 const CartItem = require("../models/cartItem");
 
+exports.search_get = asyncHandler(async function(req, res, next) {
+  const query = req.query.query;
+  const products = await Product.find({ $text: { $search: query } });
+  res.render("product/search_results", { title: "Search Results", query: query, products: products });
+});
+
 //create
 
 exports.create_get = asyncHandler(async function(req, res, next) {
