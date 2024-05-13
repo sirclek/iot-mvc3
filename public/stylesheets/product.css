@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow products to wrap to the next line */
+    justify-content: space-around; /* Center products horizontally with space between them */
+    padding: 20px;
+}
+
+.product {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    width: 20%; /* Adjust the width of each product as needed */
+    margin-bottom: 20px; /* Add margin between each product */
+    box-sizing: border-box;
+}
+
+.product-button {
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: black;
+    padding: 7px;
+    cursor: pointer;
+}

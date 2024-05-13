@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 Register
+
+    if user 
+      p You are already logged in. Please logout first.
+      a(href="/user/logout") Click here to logout
+    
+    else
+
+      form(method="post")
+          label(for="first_name") First Name:
+          input(type="text", name="first_name" value=(prev === undefined ? "" : prev.first_name))
+
+          label(for="last_name") Last Name:
+          input(type="text", name="last_name" value=(prev === undefined ? "" : prev.last_name))
+
+          label(for="email") Email:
+          input(type="email", name="email" value=(prev === undefined ? "" : prev.email))
+
+          label(for="password") Password:
+          input(type="password", name="password" value=(prev === undefined ? "" : prev.password))
+
+          label(for="confirm_password") Confirm password:
+          input(type="password", name="confirm_password" value=(prev === undefined ? "" : prev.confirm_password))
+
+          label(for="role") Role:
+          select(name="role")
+            option(value="customer") Customer
+            option(value="admin") Admin
+
+          input(type="submit", value="Register")
+
+      if errors
+        ul
+          for error in errors
+            li!= error.msg

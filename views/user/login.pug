@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 Login
+
+    if user 
+      p You are already logged in. Please logout first.
+      a(href="/user/logout") Click here to logout
+    
+    else
+
+      form(method="post")
+          label(for="email") Email:
+          input(type="email", name="email" value=(prev === undefined ? "" : prev.email))
+
+          label(for="password") Password:
+          input(type="password", name="password" value=(prev === undefined ? "" : prev.password))
+
+          input(type="submit", value="Login")
+
+      if errors
+        ul
+          for error in errors
+            li!= error.msg

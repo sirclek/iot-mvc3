@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 Product Details
+    if product
+      h2 #{product.name}
+      p Description: #{product.description}
+      p Category: #{product.category}
+      p Price: #{product.price}
+      p Quantity: #{product.quantity}
+      // Form to add item to cart
+      form(method='post')
+        input(type='hidden', name='productId', value=product._id)
+        input(type='hidden', name='quantity', value=product.quantity)
+        label(for='quantity') Purchase Quantity:
+        input(type='number', name='purchase_quantity', id='purchase_quantity')
+        button(type='submit') Add to Cart
+    else
+      p Product not found
+
+  if errors
+    ul
+      each error in errors
+        li= error.msg

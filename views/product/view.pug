@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/product.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/navbar.css')
+
+
+  body
+   nav.navbar
+      .container
+        a.navbar-button(href="/") Home
+        h1.navbar-title IoTBay
+        button.navbar-button(onclick="window.location.href='/user/login'") Login
+        button.navbar-button(onclick="window.location.href='/user/register'") Register
+        a.navbar-button(href="/cart/view") Cart
+  .content    
+    form(action="/product/search", method="GET")
+      input(type="text", name="query", placeholder="Search...")
+      button(type="submit") Search
+    h1 All Products
+    if products.length
+      .product-grid
+        each product in products
+          .product
+            h3 #{product.name}
+            p Description: #{product.description}
+            p Category: #{product.category}
+            p Price: $#{product.price}
+            - var productUrl = '/product/view/' + product._id
+            a(href=productUrl) Buy Now
+    else
+      p No products found

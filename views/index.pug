@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/product.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/navbar.css')
+
+  body
+    nav.navbar
+      .container
+        a.navbar-button(href="/") Home
+        h1.navbar-title IoTBay
+        button.navbar-button(onclick="window.location.href='/user/login'") Login
+        button.navbar-button(onclick="window.location.href='/user/register'") Register
+        a.navbar-button(href="/cart/view") Cart
+    .content
+      h1 Welcome to IoTBay
+      p Here you can explore our products.
+      // Links to product view and cart view
+      a.link(href="/product/view") View Products
