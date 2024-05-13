@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/cart.css')
+  body
+    h1(class='title') My Cart
+
+    - let totalCartPrice = 0
+    if cartItems.length > 0
+
+      p(class='total_items') Cart Items: #{cartItems.length}
+      ul(class='product_list')
+        each cartItem in cartItems
+          li(class='product')
+            - const product = products.find(product => product._id.toString() === cartItem.product_id.toString())
+            - totalCartPrice += product.price * cartItem.quantity
+            if product
+              p(class='product_name') Product Name: #{product.name}
+              p(class='product_description') Description: #{product.description}
+              p(class='product_quantity') Quantity: #{cartItem.quantity}
+              p(class='product_price') Price: $#{product.price}
+              p(class='product_total_price') Total Price: $#{product.price * cartItem.quantity}
+
+            else
+              p(class='error') Product not found
+
+      p(class='total_cart_price') Total Cart Price #{totalCartPrice}
+
+      button(class='paymont_btn' onclick="window.location.href='/order/create'") Payment
+
+      p
+
+    else
+      p(class='empty') Your cart is empty.
+
+  

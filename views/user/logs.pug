@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 My User Logs
+
+    if user
+        ul
+        each log in logs
+            li #{log.action} - #{log.date}

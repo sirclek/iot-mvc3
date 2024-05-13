@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 Update Details
+
+    if !user 
+      p You are not logged in. Please login first.
+      a(href="/user/login") Click here to login
+    
+    else
+
+      form(method="post")
+          label(for="first_name") First Name:
+          input(type="text", name="first_name" value=(user.first_name))
+
+          label(for="last_name") Last Name:
+          input(type="text", name="last_name" value=(user.last_name))
+
+          label(for="email") Email:
+          input(type="email", name="email" value=(user.email))
+
+          label(for="password") New Password:
+          input(type="password", name="password" value=(user.password))
+
+          input(type="submit", value="Update Details")
+
+      if errors
+        ul
+          for error in errors
+            li!= error.msg

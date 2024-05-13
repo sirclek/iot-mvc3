@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 Update Product
+
+    if product
+
+      form(method="post")
+        label(for="name") Name:
+        input(type="text", name="name", value=product.name)
+
+        label(for="description") Description:
+        textarea(name="description")= product.description
+
+        label(for="category") Category:
+        select#category(name="category")
+          option(value="option1", selected=product.category === "option1") Option 1
+          option(value="option2", selected=product.category === "option2") Option 2
+          option(value="option3", selected=product.category === "option3") Option 3
+
+        label(for="price") Price:
+        input(type="number", name="price", value=product.price)
+
+        label(for="quantity") Quantity:
+        input(type="number", name="quantity", value=product.quantity)
+
+        input(type="submit", value="Update Product")
+
+      if errors
+        ul
+          each error in errors
+            li= error.msg
