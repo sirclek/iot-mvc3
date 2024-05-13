@@ -23,12 +23,26 @@ h1 {
     margin-top: 30px;
     text-align: center;
     border: 1px solid #ccc;
+    justify-content: center; /* Horizontally center the products within the grid */
     border-radius: 10px;
     width: 20%; /* Adjust the width of each product as needed */
     margin-bottom: 20px; /* Add margin between each product */
     box-sizing: border-box;
     padding: 20px;
+}
+
+.product-one {
     
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    justify-content: center; /* Horizontally center the products within the grid */
+    border-radius: 10px;
+    margin-left: 10%;
+    width: 80%; /* Adjust the width of each product as needed */
+    margin-bottom: 20px; /* Add margin between each product */
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .product-button {

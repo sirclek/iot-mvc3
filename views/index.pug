@@ -6,13 +6,18 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/navbar.css')
 
-  body
+  body(style='background-image: url("images/tech-backdrop.jpg");')
     nav.navbar
       .container
         a.navbar-button(href="/") Home
         h1.navbar-title IoTBay
-        button.navbar-button(onclick="window.location.href='/user/login'") Login
-        button.navbar-button(onclick="window.location.href='/user/register'") Register
+        if user 
+          button.navbar-button(onclick="window.location.href='/user/logout'") Logout
+
+        else 
+          button.navbar-button(onclick="window.location.href='/user/login'") Login
+          button.navbar-button(onclick="window.location.href='/user/register'") Register
+        
         a.navbar-button(href="/cart/view") Cart
     .content
       h1 Welcome to IoTBay

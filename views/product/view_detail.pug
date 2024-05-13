@@ -3,15 +3,18 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/register.css')
+    link(rel='stylesheet', href='/stylesheets/product.css')
+
   body
   
     h1 Product Details
     if product
-      h2 #{product.name}
-      p Description: #{product.description}
-      p Category: #{product.category}
-      p Price: #{product.price}
-      p Quantity: #{product.quantity}
+      .product-one
+        h2 #{product.name}
+        p Description: #{product.description}
+        p Category: #{product.category}
+        p Price: #{product.price}
+        p Quantity: #{product.quantity}
       // Form to add item to cart
       form(method='post')
         input(type='hidden', name='productId', value=product._id)
