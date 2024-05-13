@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    h1 Add Address
+    
+    form(method="post")
+      label(for="first_name") First Name:
+      input(type="text", name="first_name")
+
+      label(for="last_name") Last Name:
+      input(type="text", name="last_name")
+
+      label(for="phone_number") Phone Number:
+      input(type="number", name="phone_number")
+
+      label(for="address") Address:
+      input(type="text", name="address")
+
+      label(for="method") Role:
+        select(name="method")
+          option(value="express") Express
+          option(value="standard") Standard
+
+      input(type="submit", value="Add Address")
+
+
+    if errors
+      ul
+        for error in errors
+          li= error.msg
