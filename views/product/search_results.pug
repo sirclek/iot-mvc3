@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/product.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/navbar.css')
+  body
+  .content    
+    form(action="/product/search", method="GET")
+      input(type="text", name="query", placeholder="Search...")
+      button(type="submit") Search
+    nav.navbar
+      .container
+        a.navbar-button(href="/") Home
+        h1.navbar-title IoTBay
+        button.navbar-button(onclick="window.location.href='/user/login'") Login
+        button.navbar-button(onclick="window.location.href='/user/register'") Register
+        a.navbar-button(href="/cart/view") Cart
+    .content
+      h1 Search Results for "#{query}"
+      if products.length
+        .product-grid
+          each product in products
+            .product
+              h3 #{product.name}
+              p Description: #{product.description}
+              p Category: #{product.category}
+              p Price: $#{product.price}
+              - var productUrl = '/product/view/' + product._id
+              a(href=productUrl) View Details
+      else
+        p No products found matching your search query.
+    .content 
+      button(onclick="window.location.href='/product/view/'") Back

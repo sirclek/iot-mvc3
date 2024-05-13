@@ -9,5 +9,8 @@ const ProductSchema = new Schema({
     quantity: { type: Number, required: true, min: 0 }
 });
 
+ProductSchema.index({ name: "text", description: "text" });
+
+
 
 module.exports = mongoose.model("Product", ProductSchema);

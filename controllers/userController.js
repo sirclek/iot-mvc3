@@ -119,8 +119,7 @@ exports.login_post = [
   asyncHandler(async function(req, res, next) {
 
     const errors = validationResult(req);
-
-
+    
     if(!errors.isEmpty()) {
 
       const prev = {

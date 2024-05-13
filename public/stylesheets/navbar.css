@@ -26,6 +26,7 @@ body {
 .navbar-title {
     margin: 0;
     font-size: 24px; /* Navbar title font size */
+    color: white;
 }
 
 .navbar-button {
