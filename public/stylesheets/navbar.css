@@ -2,6 +2,7 @@ body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 /* Navbar styles */
 .navbar {
     position: fixed; /* Set the navbar to be fixed */
@@ -9,7 +10,7 @@ body {
     left: 0; /* Align it to the left */
     width: 100%; /* Make it full width */
     z-index: 1000; /* Ensure it's on top of other content */
-    background-color: #333; /* Navbar background color */
+    background-color: #0f1c2d; /* Navbar background color */
     color: white; /* Text color for navbar */
     padding: 10px 0; /* Padding for navbar */
 }
@@ -17,16 +18,20 @@ body {
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    /* justify-content: flex-end; */
     max-width: 960px; /* Max width of container */
     margin: 0 auto;
     padding: 0 20px; /* Horizontal padding */
 }
 
-.navbar-title {
-    margin: 0;
-    font-size: 24px; /* Navbar title font size */
-    color: white;
+.container img {
+    height: 30px; /* Logo height */
+    margin-right: auto; /* Push logo to the left */
+}
+
+.nav-items {
+    margin-left: auto; /* Push items to the right */
 }
 
 .navbar-button {
@@ -46,11 +51,8 @@ body {
     margin-left: 10px; /* Spacing between buttons */
 }
 
-/* Main content styles */
-.content {
-    margin-top: 60px; /* Adjusted to accommodate fixed navbar */
-    padding: 20px; /* Padding for main content */
-    text-align: center; /* Center align content */
+.navbar-button.active {
+    background-color: #0056b3; /* Change color for active link */
 }
 
 /* Link styles */

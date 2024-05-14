@@ -1,0 +1,19 @@
+nav.navbar
+    .container
+        a(href="/")
+            img(src="/images/navbar-logo.png", alt="navbar logo")
+        div.nav-items
+            a.navbar-button(href="/" class=(activePage === 'home' ? 'active' : '')) Home
+            button.navbar-button(onclick="window.location.href='/user/login'" class=(activePage === 'login' ? 'active' : '')) Login
+            button.navbar-button(onclick="window.location.href='/user/register'" class=(activePage === 'register' ? 'active' : '')) Register
+            a.navbar-button(href="/cart/view" class=(activePage === 'cart' ? 'active' : '')) Cart
+
+    //- nav.navbar
+    //-   .container
+    //-     a(href="/")
+    //-       img(src="/images/navbar-logo.png", alt="navbar logo")
+    //-     a.navbar-button(href="/") Home
+    //-     h1.navbar-title IoTBay
+    //-     button.navbar-button(onclick="window.location.href='/user/login'") Login
+    //-     button.navbar-button(onclick="window.location.href='/user/register'") Register
+    //-     a.navbar-button(href="/cart/view") Cart
