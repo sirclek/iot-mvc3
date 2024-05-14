@@ -4,12 +4,15 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/product.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/navbar.css')
+    //- link(rel='stylesheet', href='/stylesheets/navbar.css')
 
   body(style='background-image: url("images/tech-backdrop.jpg");')
     include navbar.pug
     .content
       h1 Welcome to IoTBay
+      h3 What would you like to do?
+
       p Here you can explore our products.
+      
       // Links to product view and cart view
-      a.link(href="/product/view") View Products
+      a.link(href="/product/view") Browse catalogue

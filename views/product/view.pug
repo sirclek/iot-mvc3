@@ -8,25 +8,26 @@ html
 
 
   body
-    nav.navbar
-      .container
-        a.navbar-button(href="/") Home
-        h1.navbar-title IoTBay
+    include ../navbar.pug
+    //- nav.navbar
+    //-   .container
+    //-     a.navbar-button(href="/") Home
+    //-     h1.navbar-title IoTBay
 
-        if user && user.role === 'admin'
-          // If admin user is logged in, show admin-specific links
-          a.navbar-button(href="/admin/dashboard") Dashboard
-          a.navbar-button(href="/admin/products") Manage Products
+    //-     if user && user.role === 'admin'
+    //-       // If admin user is logged in, show admin-specific links
+    //-       a.navbar-button(href="/admin/dashboard") Dashboard
+    //-       a.navbar-button(href="/admin/products") Manage Products
 
-        if user
-          // If any user is logged in, show logout button
-          button.navbar-button(onclick="window.location.href='/user/logout'") Logout
-        else 
-          // If no user is logged in, show login and register buttons
-          button.navbar-button(onclick="window.location.href='/user/login'") Login
-          button.navbar-button(onclick="window.location.href='/user/register'") Register
+    //-     if user
+    //-       // If any user is logged in, show logout button
+    //-       button.navbar-button(onclick="window.location.href='/user/logout'") Logout
+    //-     else 
+    //-       // If no user is logged in, show login and register buttons
+    //-       button.navbar-button(onclick="window.location.href='/user/login'") Login
+    //-       button.navbar-button(onclick="window.location.href='/user/register'") Register
         
-        a.navbar-button(href="/cart/view") Cart
+    //-     a.navbar-button(href="/cart/view") Cart
 
   .content    
     form(action="/product/search", method="GET")

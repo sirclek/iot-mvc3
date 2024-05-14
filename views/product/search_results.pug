@@ -10,13 +10,7 @@ html
     form(action="/product/search", method="GET")
       input(type="text", name="query", placeholder="Search...")
       button(type="submit") Search
-    nav.navbar
-      .container
-        a.navbar-button(href="/") Home
-        h1.navbar-title IoTBay
-        button.navbar-button(onclick="window.location.href='/user/login'") Login
-        button.navbar-button(onclick="window.location.href='/user/register'") Register
-        a.navbar-button(href="/cart/view") Cart
+    include ../navbar.pug
     .content
       h1 Search Results for "#{query}"
       if products.length

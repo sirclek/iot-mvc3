@@ -1,19 +1,34 @@
+head
+  link(rel='stylesheet', href='/stylesheets/navbar.css')
+
 nav.navbar
     .container
         a(href="/")
             img(src="/images/navbar-logo.png", alt="navbar logo")
-        div.nav-items
-            a.navbar-button(href="/" class=(activePage === 'home' ? 'active' : '')) Home
-            button.navbar-button(onclick="window.location.href='/user/login'" class=(activePage === 'login' ? 'active' : '')) Login
-            button.navbar-button(onclick="window.location.href='/user/register'" class=(activePage === 'register' ? 'active' : '')) Register
-            a.navbar-button(href="/cart/view" class=(activePage === 'cart' ? 'active' : '')) Cart
 
-    //- nav.navbar
-    //-   .container
-    //-     a(href="/")
-    //-       img(src="/images/navbar-logo.png", alt="navbar logo")
-    //-     a.navbar-button(href="/") Home
-    //-     h1.navbar-title IoTBay
-    //-     button.navbar-button(onclick="window.location.href='/user/login'") Login
-    //-     button.navbar-button(onclick="window.location.href='/user/register'") Register
-    //-     a.navbar-button(href="/cart/view") Cart
+        if user && user.role === 'admin'
+            div.nav-items
+                // If admin user is logged in, show admin-specific links
+                a.navbar-button(href="/" class=(activePage === 'home' ? 'active' : '')) Home
+                a.navbar-button(href="/admin/dashboard") Dashboard
+                a.navbar-button(href="/admin/products") Manage Products
+        if user 
+            div.nav-items
+                a.navbar-button(href="/" class=(activePage === 'home' ? 'active' : '')) Home
+                a.navbar-button(href="/product/view" class=(activePage === 'product' ? 'active' : '')) Browse
+                // If any user is logged in, show cart and logout button
+                a.navbar-button(href="/cart/view" class=(activePage === 'cart' ? 'active' : '')) Cart
+                button.navbar-button(onclick="window.location.href='/user/logout'") Logout
+        else
+            div.nav-items
+                a.navbar-button(href="/" class=(activePage === 'home' ? 'active' : '')) Home
+                a.navbar-button(href="/product/view" class=(activePage === 'product' ? 'active' : '')) Browse
+                // If no user is logged in, show login and register buttons
+                button.navbar-button(onclick="window.location.href='/user/login'" class=(activePage === 'login' ? 'active' : '')) Login
+                button.navbar-button(onclick="window.location.href='/user/register'" class=(activePage === 'register' ? 'active' : '')) Register
+
+        //- div.nav-items
+        //-     a.navbar-button(href="/" class=(activePage === 'home' ? 'active' : '')) Home
+        //-     button.navbar-button(onclick="window.location.href='/user/login'" class=(activePage === 'login' ? 'active' : '')) Login
+        //-     button.navbar-button(onclick="window.location.href='/user/register'" class=(activePage === 'register' ? 'active' : '')) Register
+        //-     a.navbar-button(href="/cart/view" class=(activePage === 'cart' ? 'active' : '')) Cart

@@ -1,6 +1,7 @@
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding-top: 60px; /* Adjusted to accommodate fixed navbar */
 }
 
 /* Navbar styles */
@@ -18,11 +19,10 @@ body {
 .container {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    /* justify-content: flex-end; */
     max-width: 960px; /* Max width of container */
     margin: 0 auto;
     padding: 0 20px; /* Horizontal padding */
+    background-color: #0f1c2d; /* Navbar background color */
 }
 
 .container img {
