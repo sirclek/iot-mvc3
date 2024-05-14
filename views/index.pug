@@ -2,11 +2,13 @@ doctype html
 html
   head
     title= title
+    link(rel='icon', href='/images/favicon.png')
     link(rel='stylesheet', href='/stylesheets/product.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     //- link(rel='stylesheet', href='/stylesheets/navbar.css')
 
-  body(style='background-image: url("images/tech-backdrop.jpg");')
+  //- body(style='background-image: url("images/tech-backdrop.jpg");')
+  body
     include navbar.pug
     .content
       h1 Welcome to IoTBay

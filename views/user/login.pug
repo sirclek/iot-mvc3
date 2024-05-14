@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= title
+    link(rel='icon', href='/images/favicon.png')
     link(rel='stylesheet', href='/stylesheets/register.css')
   body
     include ../navbar.pug
@@ -21,6 +22,8 @@ html
           input(type="password", name="password" value=(prev === undefined ? "" : prev.password))
 
           input(type="submit", value="Login")
+
+      p Not registered? <a href="/user/register">Click here to register</a>
 
       if errors
         ul

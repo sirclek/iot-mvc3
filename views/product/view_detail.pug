@@ -2,11 +2,12 @@ doctype html
 html
   head
     title= title
+    link(rel='icon', href='/images/favicon.png')
     link(rel='stylesheet', href='/stylesheets/register.css')
     link(rel='stylesheet', href='/stylesheets/product.css')
 
   body
-  
+    include ../navbar.pug
     h1 Product Details
     if product
       .product-one

@@ -2,8 +2,10 @@ doctype html
 html
   head
     title= title
+    link(rel='icon', href='/images/favicon.png')
     link(rel='stylesheet', href='/stylesheets/register.css')
   body
+    include ../navbar.pug
     h1 Update Details
 
     if !user 

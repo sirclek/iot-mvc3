@@ -2,15 +2,16 @@ doctype html
 html
   head
     title= title
+    link(rel='icon', href='/images/favicon.png')
     link(rel='stylesheet', href='/stylesheets/product.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/navbar.css')
   body
+  include ../navbar.pug
   .content    
     form(action="/product/search", method="GET")
       input(type="text", name="query", placeholder="Search...")
       button(type="submit") Search
-    include ../navbar.pug
     .content
       h1 Search Results for "#{query}"
       if products.length
