@@ -17,5 +17,5 @@ exports.view_get = asyncHandler(async function(req, res, next) {
     cartItems = await CartItem.find({ cart_id: req.session.cart._id });
   }
 
-  res.render("cart/view", { title: "View Cart", cartItems: cartItems, products: products });
+  res.render("cart/view", { title: "View Cart", cartItems: cartItems, products: products,  user: req.session.user});
 });

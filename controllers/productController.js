@@ -69,7 +69,7 @@ exports.create_post = [
 
 exports.view_get = asyncHandler(async function(req, res, next) {
   const products = await Product.find();
-  res.render("product/view", { title: "All Products", products: products });
+  res.render("product/view", { title: "All Products", products: products, user: req.session.user});
 });
 
 //view one

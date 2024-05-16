@@ -50,5 +50,5 @@ exports.create_get = asyncHandler(async function(req, res, next) {
 
     await CartItem.deleteMany({ cart_id: req.session.cart._id });
 
-    res.render("order/create", { title: "Order Created" });
+    res.render("order/create", { title: "Order Created" ,  user: req.session.user});
 });

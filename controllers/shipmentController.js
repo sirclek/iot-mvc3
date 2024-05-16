@@ -12,7 +12,7 @@ const Shipment = require("../models/shipment")
 
 exports.create_get = asyncHandler(async function(req, res, next) {
 
-  res.render("shipment/create", { title: "Add Shipment Details"});
+  res.render("shipment/create", { title: "Add Shipment Details",  user: req.session.user});
 
 });
 
