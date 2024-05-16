@@ -84,7 +84,7 @@ exports.view_detail_get = asyncHandler(async function(req, res, next) {
     product = undefined;
   }
 
-  res.render("product/view_detail", { title: "View Product", product: product });
+  res.render("product/view_detail", { title: "View Product", product: product, user: req.session.user});
 });
 
 //add to cart

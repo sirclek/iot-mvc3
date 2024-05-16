@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-const order_controller = require("../controllers/orderController");
+const payment_controller = require("../controllers/paymentController");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get("/create", order_controller.create_get);
-router.get("/view", order_controller.view_get);
-
+router.get("/create", paymentController.create_get);
+router.post('/create', paymentController.create_post);
 
 module.exports = router;
+
+
+

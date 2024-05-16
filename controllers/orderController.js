@@ -9,6 +9,23 @@ const CartItem = require("../models/cartItem");
 
 //create
 
+exports.view_get = asyncHandler(async function (req, res, next) {
+    if (!req.session.cart) {
+        res.redirect("/");
+        return;
+    }
+    const products = await Product.find();
+
+    let cartItems = [];
+  
+    if (req.session.cart) {
+      cartItems = await CartItem.find({ cart_id: req.session.cart._id });
+    }
+
+    res.render("order/view", { title: "Order Overview" ,  cartItems: cartItems, products: products, user: req.session.user});
+
+}) 
+
 exports.create_get = asyncHandler(async function(req, res, next) {
 
     if (!req.session.cart) {
@@ -44,6 +61,11 @@ exports.create_get = asyncHandler(async function(req, res, next) {
         });
 
         await orderItem.save();
+        const product = await Product.findById(cartItem.product_id);
+        if (product) {
+            product.quantity -= cartItem.quantity;
+            await product.save();
+        }
     }
 
     req.session.order = order;

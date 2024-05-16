@@ -20,9 +20,13 @@ html
       form(method='post')
         input(type='hidden', name='productId', value=product._id)
         input(type='hidden', name='quantity', value=product.quantity)
-        label(for='quantity') Purchase Quantity:
-        input(type='number', name='purchase_quantity', id='purchase_quantity')
-        button(type='submit') Add to Cart
+
+        if user 
+          label(for='quantity') Purchase Quantity:
+          input(type='number', name='purchase_quantity', id='purchase_quantity')
+          button(type='submit') Add to Cart
+        else 
+          p You must be logged in to add to cart
     else
       p Product not found
 
