@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const payment_controller = require("../controllers/paymentController");
+const paymentController = require("../controllers/paymentController");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

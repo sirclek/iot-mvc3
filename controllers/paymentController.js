@@ -11,34 +11,14 @@ exports.create_get = asyncHandler(async function (req, res, next) {
 }) 
 
 exports.create_post = asyncHandler(async function (req, res, next) {
-    const user = await User.findOne({ email: userEmail });
+    const user = req.session.user;
 
-    if (!req.payment) {
-        const newCart = new Cart();
-        cart = await newCart.save();
-      }
-      else {
-        console.log(req.session.cart)
-        cart = await Cart.findById(req.session.cart._id);
-      }
-  
-      const cartItem = await CartItem.findOne({ cart_id: cart._id, product_id: req.params.id });
-  
-      if (cartItem) {
-        cartItem.quantity += parseInt(req.body.purchase_quantity);
-        await cartItem.save();
-      }
-      else {
-        const newCartItem = new CartItem({
-          cart_id: cart._id,
-          product_id: req.params.id,
-          quantity: req.body.purchase_quantity,
-        });
-        await newCartItem.save();
-      }
-  
-      req.session.cart = cart;
-  
-      res.redirect("/");
-      return;
+    const newPayment = new Payment({
+        user_id: user.user_id,
+        cc_no: req.body.cc_no,
+        cc_expiry: req.body.cc_expiry,
+        cc_cvv: req.body.cc_cvv
+    });
+
+    await newPayment.save();
 })

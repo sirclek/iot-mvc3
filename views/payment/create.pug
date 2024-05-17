@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel='icon', href='/images/favicon.png')
+    link(rel='stylesheet', href='/stylesheets/payment.css')
+  body
+    include ../navbar.pug
+    h1 Create New Payment
+
+      form(method="post")
+        label(for="cc_no") Credit Card Number:
+        input(type="number", name="card_number")
+
+        label(for="cc_expiry") Credit Card Expiry:
+        input(type="text", name="cc_expiry")
+
+        label(for="cc_cvv") CVV: 
+        input(type="number", name="cv_cvv")
+
+        input(type="submit", value="Add card")
+    
+      if errors
+        ul
+          for error in errors
+            li!= error.msg
