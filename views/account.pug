@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='icon', href='/images/favicon.png')
+    link(rel='stylesheet', href='/stylesheets/product.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    include navbar.pug
+    .content
+      h1 Your Account
+
+      table.table
+          tr
+              td
+                  a.link.button(href="") Your Orders
+              td
+                  a.link.button(href="") Login & Security
+          tr
+              td
+                  a.link.button(href="/payment/view") Payment Options
+              td
+                  a.link.button(href="") Your Addresses
+          tr
+              td
+                  a.link.button(href="") Placeholder 0
+              td
+                  a.link.button(href="") Placeholder 1
+
+      h3 Finished your session?
+
+      p Click the button below to log out of your account.  
+
+      // Bring the user to log out
+      a.link(onclick="window.location.href='/user/logout'") Logout

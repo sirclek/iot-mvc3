@@ -41,6 +41,8 @@ body {
     padding: 8px 16px; /* Padding for buttons */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .navbar-button:hover {
@@ -52,7 +54,8 @@ body {
 }
 
 .navbar-button.active {
-    background-color: #0056b3; /* Change color for active link */
+    /* background-color: #0056b3; /* Change color for active link */
+    text-decoration: underline; /* Add underline for active link */
 }
 
 /* Link styles */
