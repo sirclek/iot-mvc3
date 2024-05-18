@@ -75,7 +75,7 @@ exports.added_get = asyncHandler(async function(req, res, next) {
 
 exports.view_get = asyncHandler(async function(req, res, next) {
   const products = await Product.find();
-  res.render("product/view", { title: "All Products", products: products, user: req.session.user});
+  res.render("product/view", { title: "All Products", products: products, user: req.session.user, activePage: 'product'});
 });
 
 //view one

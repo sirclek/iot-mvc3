@@ -1,44 +1,40 @@
 const { body, validationResult } = require("express-validator");
+const bcrypt = require("bcrypt");
 
 const asyncHandler = require("express-async-handler");
 const User = require("../models/user");
+const Payment = require("../models/payment");
 
-//create
+// View all payment methods
+exports.viewAllMethods = asyncHandler(async function (req, res, next) {
+    // Fetch the id of the current user from the session
+    const userId = req.session.user._id;
 
-exports.create_get = asyncHandler(async function (req, res, next) {
+    // Fetch all payment methods tied to the current user from the database
+    let paymentMethods = await Payment.find({ user_id: userId });
+    
+    // Extract card numbers from the payment methods
+    let cardNumbers = paymentMethods.map(paymentMethod => paymentMethod.cc_no);
 
-    res.render("payment/create", { title: "Create Payment", user: req.session.user});
-}) 
+    // Render the view with the fetched payment methods and card numbers
+    res.render("payment/view", { title: "Your Payments", paymentMethods: paymentMethods, cardNumbers: cardNumbers, user: req.session.user});
+});
 
-exports.create_post = asyncHandler(async function (req, res, next) {
-    const user = await User.findOne({ email: userEmail });
+// Add a new payment method
+// exports.addNewPayment_get = asyncHandler(async function (req, res, next) {
+//     res.render("payment/create", { title: "Add a Payment Method", user: req.session.user});
+// }); 
 
-    if (!req.payment) {
-        const newCart = new Cart();
-        cart = await newCart.save();
-      }
-      else {
-        console.log(req.session.cart)
-        cart = await Cart.findById(req.session.cart._id);
-      }
-  
-      const cartItem = await CartItem.findOne({ cart_id: cart._id, product_id: req.params.id });
-  
-      if (cartItem) {
-        cartItem.quantity += parseInt(req.body.purchase_quantity);
-        await cartItem.save();
-      }
-      else {
-        const newCartItem = new CartItem({
-          cart_id: cart._id,
-          product_id: req.params.id,
-          quantity: req.body.purchase_quantity,
-        });
-        await newCartItem.save();
-      }
-  
-      req.session.cart = cart;
-  
-      res.redirect("/");
-      return;
-})
+// exports.addNewPayment_post = asyncHandler(async function (req, res, next) {
+//     const userEmail = req.session.user.email;
+
+//     const newPayment = new Payment({
+//         user_email: userEmail,
+//         cc_no: req.body.cc_no,
+//         cc_expiry: req.body.cc_expiry,
+//         cc_cvv: req.body.cc_cvv
+//     });
+    
+
+//     await newPayment.save();
+// })

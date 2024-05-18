@@ -13,3 +13,14 @@ a {
   padding: 20px; /* Padding for main content */
   text-align: center; /* Center align content */
 }
+
+.button {
+  display: inline-block;
+  width: 200px; /* adjust this value as needed */
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* adjust this value as needed */
+}

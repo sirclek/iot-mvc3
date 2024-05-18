@@ -10,7 +10,7 @@ const CartItem = require("../models/cartItem");
 //register
 
 exports.register_get = asyncHandler(async function(req, res, next) {
-  res.render("user/register", { title: "Register" , user: req.session.user});
+  res.render("user/register", { title: "Register" , user: req.session.user, activePage: 'register'});
 });
 
 exports.register_post = [
@@ -98,7 +98,7 @@ exports.register_post = [
 //login
 
 exports.login_get = asyncHandler(async function(req, res, next) {
-  res.render("user/login", { title: "Login" , user: req.session.user});
+  res.render("user/login", { title: "Login" , user: req.session.user, activePage: 'login'});
 });
 
 exports.login_post = [

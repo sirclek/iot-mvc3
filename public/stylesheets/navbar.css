@@ -6,8 +6,8 @@ body {
 
 /* Navbar styles */
 .navbar {
-    position: fixed; /* Set the navbar to be fixed */
-    top: 0; /* Position it at the top */
+    position: fixed; 
+    top: 0; 
     left: 0; /* Align it to the left */
     width: 100%; /* Make it full width */
     z-index: 1000; /* Ensure it's on top of other content */
@@ -41,10 +41,12 @@ body {
     padding: 8px 16px; /* Padding for buttons */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .navbar-button:hover {
-    background-color: #0056b3; /* Hover color for buttons */
+    background-color: #0056b3; 
 }
 
 .navbar-button + .navbar-button {
@@ -52,7 +54,8 @@ body {
 }
 
 .navbar-button.active {
-    background-color: #0056b3; /* Change color for active link */
+    /* background-color: #0056b3; /* Change color for active link */
+    text-decoration: underline; /* Add underline for active link */
 }
 
 /* Link styles */

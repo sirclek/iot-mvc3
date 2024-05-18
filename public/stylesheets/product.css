@@ -12,10 +12,10 @@ h1 {
 
 .product-grid {
     display: flex;
-    flex-wrap: wrap; /* Allow products to wrap to the next line */
+    flex-wrap: wrap;
     text-align: center;
     padding: 20px;
-    justify-content: center; /* Horizontally center the products within the grid */
+    justify-content: center; 
     margin-right: 10px;
 }
 
@@ -23,10 +23,10 @@ h1 {
     margin-top: 30px;
     text-align: center;
     border: 1px solid #ccc;
-    justify-content: center; /* Horizontally center the products within the grid */
+    justify-content: center; 
     border-radius: 10px;
-    width: 20%; /* Adjust the width of each product as needed */
-    margin-bottom: 20px; /* Add margin between each product */
+    width: 20%; 
+    margin-bottom: 20px; 
     box-sizing: border-box;
     padding: 20px;
 }
@@ -36,11 +36,11 @@ h1 {
     margin-top: 30px;
     text-align: center;
     border: 1px solid #ccc;
-    justify-content: center; /* Horizontally center the products within the grid */
+    justify-content: center; 
     border-radius: 10px;
     margin-left: 10%;
-    width: 80%; /* Adjust the width of each product as needed */
-    margin-bottom: 20px; /* Add margin between each product */
+    width: 80%; 
+    margin-bottom: 20px; 
     box-sizing: border-box;
     padding: 20px;
 }

@@ -20,6 +20,7 @@ nav.navbar
                 a.navbar-button(href="/cart/view" class=(activePage === 'cart' ? 'active' : '')) Cart
                 //for user to manage their shipment details (add/update/delete)
                 a.navbar-button(href="/shipment/view" class=(activePage === 'shipment' ? 'active' : '')) Shipment Details
+                a.navbar-button(href="/account" class=(activePage === 'account' ? 'active' : '')) Account
                 button.navbar-button(onclick="window.location.href='/user/logout'") Logout
         else
             div.nav-items
