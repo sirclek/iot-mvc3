@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/view", paymentController.viewAllMethods);
-// router.get("/create", paymentController.addNewPayment_get);
-// router.post('/create', paymentController.addNewPayment_post);
+router.get("/create", paymentController.addNewPayment_get);
+router.post('/create', paymentController.addNewPayment_post);
 
 
 module.exports = router;

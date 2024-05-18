@@ -10,17 +10,36 @@ html(lang="en")
     include ../navbar.pug
     h1 Add new payment method
 
+      //- form(method="post")
+      //-   label(for="cc_no") Credit Card Number:
+      //-   input(type="number", name="cc_no")
+
+      //-   label(for="cc_expiry") Credit Card Expiry:
+      //-   input(type="text", name="cc_expiry")
+
+      //-   label(for="cc_cvv") CVV: 
+      //-   input(type="number", name="cv_cvv")
+
+      //-   input(type="submit", value="Add card")
+      
       form(method="post")
+        // Add your form fields here...
+        label(for="card_firstName") First Name:
+        input(type="text", name="card_firstName", value=(input && input.card_firstName && !errorFields.includes('card_firstName') ? input.card_firstName : ''))
+        
+        label(for="card_lastName") Last Name:
+        input(type="text", name="card_lastName", value=(input && input.card_lastName && !errorFields.includes('card_lastName') ? input.card_lastName : ''))
+
         label(for="cc_no") Credit Card Number:
-        input(type="number", name="cc_no")
+        input(type="text", name="cc_no", value=(input && input.cc_no && !errorFields.includes('cc_no') ? input.cc_no : ''), maxlength="16")
 
         label(for="cc_expiry") Credit Card Expiry:
-        input(type="text", name="cc_expiry")
+        input(type="text", name="cc_expiry", value=(input && input.cc_expiry && !errorFields.includes('cc_expiry') ? input.cc_expiry : ''))
 
-        label(for="cc_cvv") CVV: 
-        input(type="number", name="cv_cvv")
+        label(for="cc_cvv") CVV:
+        input(type="text", name="cc_cvv", value=(input && input.cc_cvv && !errorFields.includes('cc_cvv') ? input.cc_cvv : ''))
 
-        input(type="submit", value="Add card")
+        button(type="submit") Add Payment Method
     
       if errors
         ul

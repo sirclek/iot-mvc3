@@ -6,12 +6,14 @@ html
     link(rel='stylesheet', href='/stylesheets/cart.css')
   body
     include ../navbar.pug
-    h1(class='title') Your payment methods
+    h1(class='title') Your Payment Methods
     if paymentMethods.length > 0
       ul(class='payment_list')
         each paymentMethod in paymentMethods
           li(class='payment')
             p(class='card_number') Card Number: #{paymentMethod.cc_no}
+      a.link(href="/payment/create") Add new payment method
+
     else
       p(class='empty') No payment methods registered.
       a.link(href="/payment/create") Add new payment method
