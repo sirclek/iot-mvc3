@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='icon', href='/images/favicon.png')
+    link(rel='stylesheet', href='/stylesheets/product.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    include ../navbar.pug
+    h1(class='title') Shipment Details
+
+    if shipment     
+      p(class='shipment_first_name') First Name: #{shipment.first_name}
+      p(class='shipment_last_name') Last Name: #{shipment.last_name}
+      p(class='shipment_phone_number') Phone Number: #{shipment.phone_number}
+      p(class='shipment_method') Shipping Method: #{shipment.method}
+      p(class='shipment_address') Address: #{shipment.address}
+
+      .content
+        a.link(href="/shipment/update") Update Shipment Details
+        a.link(href="/shipment/deleted") Delete Shipment Details
+
+    else
+      .content
+        p(class='empty') No shipment details available.
+        a.link(href="/shipment/create") Add New Shipment
+        //this works, but after enter information and save adress didnt work

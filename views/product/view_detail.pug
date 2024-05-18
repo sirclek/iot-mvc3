@@ -24,9 +24,10 @@ html
         if user 
           label(for='quantity') Purchase Quantity:
           input(type='number', name='purchase_quantity', id='purchase_quantity')
-          button(type='submit') Add to Cart
+          button(type='submit') Add to Cart 
         else 
-          p You must be logged in to add to cart
+          p You must be logged in to add to cart, <a href="/user/login">click here to login</a>
+          
     else
       p Product not found
 

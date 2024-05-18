@@ -65,6 +65,12 @@ exports.create_post = [
   }),
 ];
 
+//continue shopping or view cart page
+exports.added_get = asyncHandler(async function(req, res, next) {
+  res.render("product/added", { title: "Added Product", user: req.session.user});
+});
+
+
 //view all
 
 exports.view_get = asyncHandler(async function(req, res, next) {
@@ -146,7 +152,7 @@ exports.view_detail_post = [
 
     req.session.cart = cart;
 
-    res.redirect("/");
+    res.redirect("/product/added"); 
     return;
   }),
 ];

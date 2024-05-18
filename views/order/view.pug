@@ -24,11 +24,12 @@ html
           else
             p(class='error') Product not found
 
-    p(class='total_cart_price') Total Order Price #{totalCartPrice}
+    p(class='total_cart_price') Total Order Price: $#{totalCartPrice}
 
     if userHasPayment
       button(class='payment_btn' onclick="window.location.href='/order/create'") Place Order
     else
       button(class='payment_btn' onclick="window.location.href='/payment/create'") Create New Payment Method
+      button(class='payment_btn' onclick="window.location.href='/order/create'") Place Order
 
     p Please review your order 

@@ -20,5 +20,8 @@ router.post("/update/:id", product_controller.update_post);
 
 router.get("/search", product_controller.search_get);
 
+router.get("/added", product_controller.added_get);
+
+
 
 module.exports = router;

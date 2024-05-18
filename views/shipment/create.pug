@@ -23,13 +23,21 @@ html
 
       label(for="method") Delivery Method:
         select(name="method")
-          option(value="express") Express
-          option(value="standard") Standard
+          option(value="express") Express Shipping
+          option(value="standard") Standard Shipping
 
-      input(type="submit", value="Add Address")
+      input(type="submit", value="Save Address")
 
 
     if errors
       ul
         for error in errors
           li= error.msg
+
+
+//if customer already have address -> display address (update + delete button)
+//else -> add address page
+//if customer have no existed address -> payment: display add address
+//else -> update address
+
+//after all address and payment: show summary page of both payment and address

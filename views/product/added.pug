@@ -1,0 +1,24 @@
+//order added to cart
+//after added to cart -> navigate to a page (continue to shop -> go to homepage or check out -> go to cart)
+//display a text: items added to cart
+//another line of text: would you like to
+//continue shopping
+//nagivate to cart
+
+doctype html
+html
+  head
+    title= title
+    link(rel='icon', href='/images/favicon.png')
+    link(rel='stylesheet', href='/stylesheets/product.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    include ../navbar.pug
+    .content
+      h1 Items added to cart
+      h3 would you like to
+
+      // Links to cart view and product view
+      a.link(href="/product/view") Continue to Shop
+      a.link(href="/cart/view") View Cart

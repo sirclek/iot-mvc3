@@ -46,6 +46,7 @@ app.use('/product', productRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
 app.use('/shipment', shipmentRouter);
+// app.use('/payment', paymentRouter); ??
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

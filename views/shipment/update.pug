@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel='icon', href='/images/favicon.png')
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body
+    include ../navbar.pug
+    h1 Update Shipment
+
+    if shipment
+
+      form(action="/shipment/update", method="post")
+        label(for="first_name") First Name:
+        input(type="text", name="first_name", value=shipment.first_name)
+
+        label(for="last_name") Last Name:
+        input(type="text", name="last_name", value=shipment.last_name)
+
+        label(for="phone_number") Phone Number:
+        input(type="text", name="phone_number", value=shipment.phone_number)
+
+        label(for="method") Shipping Method:
+        select#method(name="method")
+          option(value="standard", selected=shipment.method === "standard") Standard
+          option(value="express", selected=shipment.method === "express") Express
+
+        label(for="address") Address:
+        input(type="text", name="address", value=shipment.address)
+
+
+        input(type="submit", value="Update Shipment")
+
+      if errors
+        ul
+          each error in errors
+            li= error.msg

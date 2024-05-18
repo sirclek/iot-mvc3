@@ -18,6 +18,8 @@ nav.navbar
                 a.navbar-button(href="/product/view" class=(activePage === 'product' ? 'active' : '')) Browse
                 // If any user is logged in, show cart and logout button
                 a.navbar-button(href="/cart/view" class=(activePage === 'cart' ? 'active' : '')) Cart
+                //for user to manage their shipment details (add/update/delete)
+                a.navbar-button(href="/shipment/view" class=(activePage === 'shipment' ? 'active' : '')) Shipment Details
                 button.navbar-button(onclick="window.location.href='/user/logout'") Logout
         else
             div.nav-items
